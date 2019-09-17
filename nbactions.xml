@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-dockerfile:push</actionName>
+            <displayName>dockerfile:push</displayName>
+            <goals>
+                <goal>dockerfile:push</goal>
+            </goals>
+            <properties>
+                <dockerfile.username>ellenkraffmiller</dockerfile.username>
+                <dockerfile.password>docker password</dockerfile.password>
+            </properties>
+        </action>
+</actions>
