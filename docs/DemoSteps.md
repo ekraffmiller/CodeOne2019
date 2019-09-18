@@ -6,6 +6,7 @@ Create new minikube (By default it will start with 3CPU and 4096 memory)
 
 ```
 $ minikube start 
+$ minikube dashboard
 ```
 
 Initialize Helm - this will deploy the Tiller Pod in the cluster
@@ -52,16 +53,27 @@ $ kubectl apply -f pv-volume.yaml
 $ kubectl apply -f pvc-claim.yaml 
 ```
 
-Install History Server, which will read events from /mnt/data
-
-```
-helm install stable/spark-history-server --namespace default --set pvc.existingClaimName=task-pv-claim --set pvc.eventsDir=
-```
-
 Run the LDA Demo that reads and writes to the persistent volume on minikube.
 
 ```
 $ kubectl apply -f lda-demo-local.yaml
+```
+
+```  
+
+Use kubectl port-forward to access the Spark UI
+
+```
+$ kubectl port-forward <driver-pod-name> 4040:4040
+```
+
+
+Install History Server, which will read events from /mnt/data
+
+```
+$ helm install stable/spark-history-server --namespace default \
+--set pvc.existingClaimName=task-pv-claim \
+--set pvc.eventsDir=
 ```
 
 Open a browser to view the Spark History Server
@@ -70,4 +82,27 @@ Open a browser to view the Spark History Server
 $ minikube service <animal name>-spark-history-server
 ```  
 
+Use kubectl port-forward to access the Spark UI
+
+```
+$ kubectl port-forward lda-demo-local-driver 4040:4040
+```
+
+To list SparkApplications, run:
+
+```
+$ kubectl get sparkapplications 
+```
+
+To check events for the SparkApplication object, run:
+
+```
+$ kubectl describe sparkapplication lda-demo-local
+```
+
+Before re-rerunning the application, delete it from the cluster:
+
+```
+$ kubectl delete sparkapplication lda-demo-local
+```
 
