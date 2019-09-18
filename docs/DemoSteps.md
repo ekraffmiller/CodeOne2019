@@ -1,4 +1,4 @@
-#Steps for Running LDA Demo
+# Steps for Running LDA Demo
 
 Install minikube and helm using homebrew (cmd: brew install)
 
