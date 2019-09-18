@@ -16,7 +16,7 @@
 apiVersion: "sparkoperator.k8s.io/v1beta1"
 kind: SparkApplication
 metadata:
-  name: lda-demo8
+  name: lda-demo-local
   namespace: default
 spec:
   type: Java
