@@ -1,3 +1,3 @@
-# CodeOne2019
-CodeOne2019
+# What's new with Spark on Kubernetes
+CodeOne 2019 
 Contains Slides, scripts and source code for CodeOne presentation
