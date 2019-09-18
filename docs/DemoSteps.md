@@ -64,7 +64,7 @@ $ kubectl apply -f lda-demo-local.yaml
 Use kubectl port-forward to access the Spark UI
 
 ```
-$ kubectl port-forward <driver-pod-name> 4040:4040
+$ kubectl port-forward lda-demo-local-driver 4040:4040
 ```
 
 
@@ -82,11 +82,7 @@ Open a browser to view the Spark History Server
 $ minikube service <animal name>-spark-history-server
 ```  
 
-Use kubectl port-forward to access the Spark UI
 
-```
-$ kubectl port-forward lda-demo-local-driver 4040:4040
-```
 
 To list SparkApplications, run:
 
@@ -98,6 +94,13 @@ To check events for the SparkApplication object, run:
 
 ```
 $ kubectl describe sparkapplication lda-demo-local
+```
+
+To view the results of the LDA Demo view file on minikube:
+
+```
+$ minikube ssh
+$ cat /mnt/data/LDAResults.txt
 ```
 
 Before re-rerunning the application, delete it from the cluster:
