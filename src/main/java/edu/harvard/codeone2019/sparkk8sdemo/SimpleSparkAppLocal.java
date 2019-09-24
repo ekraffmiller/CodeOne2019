@@ -19,11 +19,11 @@ import org.apache.spark.sql.SparkSession;
 import scala.collection.mutable.WrappedArray;
 
 /**
- * Simple Machine Learning example, reads CSV from Azure Blob Storage, runs LDA
- * Topic Model, and saves the results to Azure. Topic modeling is a type of
- * statistical modeling for discovering the abstract “topics” that occur in a
- * collection of documents. Latent Dirichlet Allocation (LDA) is an example of
- * topic model and is used to classify text in a document to a particular topic.
+ * Simple Machine Learning example, reads CSV from local file, runs LDA
+ * Topic Model, and saves the results to file mounted on cluster. 
+ * Topic modeling is a type of statistical modeling for discovering the abstract 
+ * “topics” that occur in a collection of documents. Latent Dirichlet Allocation (LDA)
+ * is an example of topic model and is used to classify text in a document to a particular topic.
  * LDA is included in the SparkML library.
  *
  * @author ellenk
@@ -59,7 +59,7 @@ public class SimpleSparkAppLocal {
     }
 
     /**
-     * Read CSV file from Azure blob storage into a Spark Dataframe
+     * Read CSV file from csv file into a Spark Dataframe
      *
      * @param session
      * @return
