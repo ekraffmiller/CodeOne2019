@@ -59,8 +59,6 @@ Run the LDA Demo that reads and writes to the persistent volume on minikube.
 $ kubectl apply -f lda-demo-local.yaml
 ```
 
-```  
-
 Use kubectl port-forward to access the Spark UI
 
 ```
